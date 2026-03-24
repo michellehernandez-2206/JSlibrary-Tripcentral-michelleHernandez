@@ -1,0 +1,121 @@
+/* Footer styles extracted from style.css */
+.footer {
+    width: 100%;
+    margin-top: 32px;
+    color: #ffffff;
+}
+
+.footer-top {
+    background: #538b90;
+    padding: 48px 24px 40px;
+    text-align: center;
+}
+
+.footer-logo {
+    width: min(100%, 250px);
+    margin-bottom: 28px;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.footer-links a,
+.footer-menu a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.footer-links a {
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.footer-reviews {
+    margin: 26px 0 0;
+    font-size: 16px;
+}
+
+.footer-reviews span {
+    color: #9fbb4d;
+    font-weight: 700;
+}
+
+.footer-badges {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    margin: 28px 0;
+    flex-wrap: wrap;
+}
+
+.footer-badges span {
+    min-width: 86px;
+    padding: 10px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+.footer-socials {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 10px;
+}
+
+.footer-socials a {
+    width: 54px;
+    height: 54px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.footer-socials a:nth-child(1) {
+    background: #3b5998;
+}
+
+.footer-socials a:nth-child(2) {
+    background: #60a5fa;
+}
+
+.footer-socials a:nth-child(3) {
+    background: #cf3024;
+}
+
+.footer-socials a:nth-child(4) {
+    background: linear-gradient(135deg, #833ab4 0%, #fd1d1d 55%, #fcb045 100%);
+}
+
+.footer-bottom {
+    background: #315f62;
+    padding: 40px 24px 52px;
+}
+
+.footer-legal {
+    margin: 0 0 30px;
+    color: #80b8bd;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.footer-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.footer-menu a {
+    font-size: 17px;
+    font-weight: 500;
+}

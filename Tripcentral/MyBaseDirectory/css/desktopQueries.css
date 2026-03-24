@@ -1,0 +1,254 @@
+@media screen and (min-width: 1440px) {
+    nav {
+        height: 74px;
+        padding: 0 72px;
+    }
+
+    nav .logo img {
+        width: 160px;
+    }
+
+    nav .nav-sections ul {
+        display: flex;
+        align-items: center;
+        gap: 36px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    nav .nav-sections a {
+        color: #ffffff;
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    #canada {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+    }
+
+    #canada img:last-child {
+        display: none;
+    }
+
+    main {
+        display: block;
+    }
+
+    #canvas-basic {
+        top: 74px;
+        height: 700px;
+    }
+
+    .hero {
+        min-height: 560px;
+        height: auto;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 380px;
+        align-items: start;
+        gap: 56px;
+        padding: 96px 88px 46px;
+        box-sizing: border-box;
+    }
+
+    .tone-of-voice {
+        width: 520px;
+        margin: 0;
+        font-size: 58px;
+        line-height: 1.02;
+        font-weight: 700;
+    }
+
+    .subhed {
+        width: 520px;
+        margin: 18px 0 0;
+        font-size: 28px;
+        line-height: 1.18;
+    }
+
+    .button-primary {
+        margin: 24px 0 0;
+    }
+
+    .clear-search {
+        width: 100%;
+        margin: 0;
+        padding: 0 18px 18px;
+        justify-self: end;
+        background-color: rgba(255, 255, 255, 0.78);
+    }
+
+    .options {
+        padding: 18px 0 14px;
+    }
+
+    .field-row {
+        width: 100%;
+        height: 46px;
+    }
+
+    .field-grid {
+        flex-direction: row;
+        gap: 12px;
+    }
+
+    .field-grid .field-row {
+        width: calc(50% - 6px);
+    }
+
+    .occupancy-wrap {
+        width: 100%;
+    }
+
+    .occupancy-trigger {
+        width: 100%;
+    }
+
+    .travel-filters {
+        gap: 8px;
+        flex-wrap: nowrap;
+    }
+
+    .travel-filter {
+        flex: 1 1 0;
+        justify-content: center;
+        padding: 10px 8px;
+    }
+
+    .travel-filter-text {
+        font-size: 10px;
+    }
+
+    .search-button {
+        margin: 16px 0 0;
+    }
+
+    .lowest-prices-section {
+        max-width: 1240px;
+        margin: 0 auto;
+        padding: 52px 36px 72px;
+        box-sizing: border-box;
+    }
+
+    .big-text {
+        margin-top: 0;
+        font-size: 44px;
+        text-align: center;
+    }
+
+    .small-regular-text p {
+        max-width: 720px;
+        margin: 12px auto 28px;
+        font-size: 14px;
+    }
+
+    .sun-destination,
+    .european-destination,
+    .american-destination {
+        width: 100%;
+        margin: 0 auto 34px;
+    }
+
+    .destination-heading {
+        margin: 0 0 16px;
+        text-align: left;
+        font-size: 26px;
+        padding-left: 8px;
+    }
+
+    .destination-glide {
+        padding-bottom: 18px;
+    }
+
+    .destination-card {
+        width: min(100%, 204px);
+        padding: 10px;
+        border-radius: 14px;
+    }
+
+    .destination-card::before {
+        border-radius: 14px;
+    }
+
+    .destination-card__image {
+        height: 112px;
+        border-radius: 12px;
+    }
+
+    .destination-card__body {
+        gap: 8px;
+        margin-top: 8px;
+    }
+
+    .destination-card__name,
+    .destination-card__price {
+        font-size: 11px;
+    }
+
+    .destination-glide .glide__slide--active .destination-card {
+        transform: scale(1.02);
+    }
+
+    .destination-dots {
+        margin-top: 10px;
+    }
+
+    .footer-top {
+        padding: 54px 72px 42px;
+        text-align: left;
+        display: grid;
+        grid-template-columns: 1.2fr 1fr 1fr 1fr;
+        gap: 40px;
+        align-items: start;
+    }
+
+    .footer-logo {
+        width: 190px;
+        margin-bottom: 18px;
+    }
+
+    .footer-links {
+        gap: 14px;
+    }
+
+    .footer-links a {
+        font-size: 15px;
+    }
+
+    .footer-reviews {
+        margin: 22px 0 0;
+        font-size: 14px;
+    }
+
+    .footer-badges {
+        justify-content: flex-start;
+        margin: 22px 0 24px;
+    }
+
+    .footer-socials {
+        justify-content: flex-start;
+    }
+
+    .footer-bottom {
+        padding: 28px 72px 34px;
+        display: grid;
+        grid-template-columns: 1.2fr 1fr 1fr 1fr;
+        gap: 40px;
+        align-items: start;
+    }
+
+    .footer-legal {
+        margin: 0;
+        max-width: 280px;
+    }
+
+    .footer-menu {
+        gap: 14px;
+    }
+
+    .footer-menu a {
+        font-size: 15px;
+    }
+}
