@@ -46,7 +46,10 @@ main {
     text-align: left;
     background-image: url(/images/BG\ IM\ 1.png);
     background-size: cover;
+
+
 }
+
 
 .tone-of-voice {
     width: 240px;
@@ -107,5 +110,56 @@ main {
 
 .op-vacations {
     margin: auto;
+    text-align: center;
+}
+
+
+/* Lowest Prices section */
+.container-2 {
+    width: 100%;
+}
+
+.lowest-prices-section {
+    width: 100%;
+    position: relative;
+
+}
+
+/* Animation hooks for Lowest Prices title and supporting copy */
+.big-text .char {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(24px);
+    will-change: transform, opacity;
+}
+
+/* anime.js */
+
+[data-animate-copy] .char {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(24px);
+    will-change: transform, opacity;
+}
+
+[data-animate-copy] {
+    opacity: 0;
+    transform: translateY(24px);
+    will-change: transform, opacity;
+}
+
+.big-text {
+    margin-top: 80px;
+    margin-bottom: 16px;
+    font-size: var(--heading);
+    font-weight: var(--semi-bold);
+    color: black;
+    text-align: center;
+}
+
+.small-regular-text p {
+    font-size: 11px;
+    color: #1e1e1e;
+    margin: 8px 40px 24px 40px;
     text-align: center;
 }

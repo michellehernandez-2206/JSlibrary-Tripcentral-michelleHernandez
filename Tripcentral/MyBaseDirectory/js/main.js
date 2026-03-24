@@ -29,6 +29,83 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+    // Anime.js scroll trigger for Lowest Prices title and paragraph.
+    const animatedTitle = document.querySelector("[data-animate-chars]");
+    const animatedCopy = document.querySelector("[data-animate-copy]");
+    const firstDestinationCards = document.querySelector(".sun-destination .element-cards");
+    // Tweak these values to control when the animation starts and how fast it feels.
+    const lowestPricesScrollOffset = 60;
+    const lowestPricesCharDuration = 900;
+    const lowestPricesCharStagger = 45;
+    const lowestPricesCopyDuration = 700;
+
+    function splitTextToChars(element) {
+        const text = element.textContent;
+        element.setAttribute("aria-label", text);
+        element.textContent = "";
+
+        Array.from(text).forEach(function (char) {
+            const span = document.createElement("span");
+            span.className = "char";
+            span.setAttribute("aria-hidden", "true");
+            span.textContent = char === " " ? "\u00A0" : char;
+            element.appendChild(span);
+        });
+    }
+
+    if (animatedTitle && animatedCopy && firstDestinationCards && typeof anime === "function") {
+        splitTextToChars(animatedTitle);
+
+        const titleChars = animatedTitle.querySelectorAll(".char");
+        let hasPlayedTitleAnimation = false;
+
+        const playTitleAnimation = function () {
+            if (hasPlayedTitleAnimation) {
+                return;
+            }
+
+            hasPlayedTitleAnimation = true;
+
+            const titleTimeline = anime.timeline({
+                easing: "easeOutExpo"
+            });
+
+            titleTimeline
+                .add({
+                    targets: titleChars,
+                    translateY: [24, 0],
+                    opacity: [0, 1],
+                    duration: lowestPricesCharDuration,
+                    delay: anime.stagger(lowestPricesCharStagger)
+                })
+                .add({
+                    targets: animatedCopy,
+                    translateY: [24, 0],
+                    opacity: [0, 1],
+                    duration: lowestPricesCopyDuration
+                }, "-=420");
+        };
+
+        const checkTitleScrollTrigger = function () {
+            if (hasPlayedTitleAnimation) {
+                return;
+            }
+
+            const cardsTop = firstDestinationCards.getBoundingClientRect().top + window.scrollY;
+            const triggerPoint = cardsTop - window.innerHeight + lowestPricesScrollOffset;
+
+            if (window.scrollY >= triggerPoint) {
+                playTitleAnimation();
+                window.removeEventListener("scroll", checkTitleScrollTrigger);
+                window.removeEventListener("resize", checkTitleScrollTrigger);
+            }
+        };
+
+        window.addEventListener("scroll", checkTitleScrollTrigger, { passive: true });
+        window.addEventListener("resize", checkTitleScrollTrigger);
+        checkTitleScrollTrigger();
+    }
+
     // occupancy picker
     const occupancyState = {
         adults: 0,
@@ -50,7 +127,7 @@ document.addEventListener("DOMContentLoaded", function () {
         return `${occupancyState.adults} Adults, ${occupancyState.children} Children, ${occupancyState.rooms} ${roomLabel}`;
     }
 
-    // actualiza números visibles y texto del input.
+    // update visible numbers and input text
     function renderOccupancy() {
         countEls.adults.textContent = occupancyState.adults;
         countEls.children.textContent = occupancyState.children;
@@ -58,7 +135,7 @@ document.addEventListener("DOMContentLoaded", function () {
         occupancyInput.value = formatOccupancyLabel();
     }
 
-    // abre o cierra el panel del occupancy picker.
+    // open or close occupancy picker panel
     function setOccupancyOpen(isOpen) {
         occupancyPanel.hidden = !isOpen;
         occupancyTrigger.setAttribute("aria-expanded", String(isOpen));
@@ -106,77 +183,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (!clickedInside) {
                 setOccupancyOpen(false);
-            }
-        });
-    }
-
-    // Cambio agregado: estado inicial del preferences picker con máximo de 3 selecciones.
-    const preferencesTrigger = document.getElementById("preferences-trigger");
-    const preferencesPanel = document.getElementById("preferences-panel");
-    const preferencesInput = document.getElementById("preferences-input");
-    const preferenceOptions = document.querySelectorAll(".preference-option");
-    const selectedPreferences = new Set();
-
-    function renderPreferences() {
-        if (!preferencesInput) {
-            return;
-        }
-
-        preferencesInput.value = selectedPreferences.size
-            ? Array.from(selectedPreferences).join(", ")
-            : "Select up to 3";
-    }
-
-    // Cambio agregado: abre o cierra el panel de preferences.
-    function setPreferencesOpen(isOpen) {
-        if (!preferencesPanel || !preferencesTrigger) {
-            return;
-        }
-
-        preferencesPanel.hidden = !isOpen;
-        preferencesTrigger.setAttribute("aria-expanded", String(isOpen));
-    }
-
-    if (preferencesTrigger && preferencesPanel && preferencesInput && preferenceOptions.length) {
-        renderPreferences();
-
-        preferencesTrigger.addEventListener("click", function () {
-            setPreferencesOpen(preferencesPanel.hidden);
-        });
-
-        preferencesTrigger.addEventListener("keydown", function (event) {
-            if (event.key === "Enter" || event.key === " ") {
-                event.preventDefault();
-                setPreferencesOpen(preferencesPanel.hidden);
-            }
-        });
-
-        preferencesPanel.addEventListener("click", function (event) {
-            const option = event.target.closest(".preference-option");
-
-            if (!option) {
-                return;
-            }
-
-            const value = option.dataset.value;
-
-            if (selectedPreferences.has(value)) {
-                selectedPreferences.delete(value);
-                option.classList.remove("is-selected");
-            } else if (selectedPreferences.size < 3) {
-                selectedPreferences.add(value);
-                option.classList.add("is-selected");
-            }
-
-            renderPreferences();
-        });
-
-        document.addEventListener("click", function (event) {
-            const clickedInside =
-                preferencesTrigger.contains(event.target) || preferencesPanel.contains(event.target);
-
-            if (!clickedInside) {
-                setPreferencesOpen(false);
             }
         });
     }

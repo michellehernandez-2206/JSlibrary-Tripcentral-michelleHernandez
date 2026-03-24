@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="/css/fieldCard.css" />
 
 
-    <!-- Cambio agregado: CSS de flatpickr para el date picker personalizado -->
     <!-- js libraries -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -172,41 +171,53 @@
 
 
 
-        </div>
         <!-- Lowest Prices section -->
-        <div class="rectangle-2" aria-hidden="true"></div>
-        <section aria-label="Lowest Prices">
-            <div class="headline-medium">
-                <h2 class="headline-medium-2">Lowest Prices</h2>
+        <div class="container-2" aria-hidden="true"></div>
+        <section class="lowest-prices-section" aria-label="Lowest Prices">
+            <div>
+                <h2 class="big-text" data-animate-chars>Lowest Prices</h2>
             </div>
-            <div class="small-regular-10">
-                <p class="p">
-                    These are the lowest prices from Toronto, updated <br />twice daily and include applicable taxes and
+            <div class="small-regular-text">
+                <p data-animate-copy>
+                    These are the lowest prices from Toronto, updated twice daily and include applicable taxes and
                     surcharges
                 </p>
             </div>
+
             <!-- Sun Destination -->
             <article class="sun-destination" aria-label="Sun Destination">
-                <div class="heading">
-                    <h3 class="heading-2">Sun Destination</h3>
+                <div>
+                    <h3 class="destination-heading">Sun Destination</h3>
                 </div>
                 <div class="element-cards">
                     <div class="frame-2">
-                        <img class="anguila" src="img/anguila-1-6.png" alt="Antigua destination" />
-                        <span class="text-wrapper-2">Antigua</span>
-                        <span class="text-wrapper-3">$1,359</span>
+                        <img class="anguila" src="img/anguila-1.png" alt="Anguilla destination" />
+                        <span class="text-wrapper-2">Anguilla</span>
+                        <span class="text-wrapper-3">$2,429</span>
                     </div>
                     <div class="card">
-                        <img class="anguila-2" src="img/anguila-1.png" alt="Anguilla destination" />
-                        <span class="text-wrapper-4">Anguilla</span>
-                        <span class="text-wrapper-5">$2,429</span>
+                        <img class="anguila-2" src="img/anguila-1-6.png" alt="Antigua destination" />
+                        <span class="text-wrapper-4">Antigua</span>
+                        <span class="text-wrapper-5">$1,359</span>
                     </div>
                     <div class="frame-2">
-                        <img class="anguila" src="img/anguila-1-4.png" alt="Antigua destination" />
-                        <span class="text-wrapper-2">Antigua</span>
-                        <span class="text-wrapper-3">$1,599</span>
+                        <img class="anguila" src="img/anguila-1-4.png" alt="Aruba destination" />
+                        <span class="text-wrapper-2">Aruba</span>
+                        <span class="text-wrapper-3">$2,129</span>
+                    </div>
+                    <div class="frame-2">
+                        <img class="anguila" src="img/anguila-1-6.png" alt="Cancun destination" />
+                        <span class="text-wrapper-2">Cancun, Mexico</span>
+                        <span class="text-wrapper-3">$1,809</span>
+                    </div>
+                    <div class="frame-2">
+                        <img class="anguila" src="img/anguila-1-4.png" alt="Jamaica destination" />
+                        <span class="text-wrapper-2">Jamaica</span>
+                        <span class="text-wrapper-3">$1,649</span>
                     </div>
                 </div>
+
+                <!-- little dots -->
                 <div class="contro-l" aria-label="Carousel navigation dots" role="group">
                     <span class="dot" aria-hidden="true"></span>
                     <span class="dot-2" aria-hidden="true"></span>
@@ -219,28 +230,42 @@
                     <span class="dot" aria-hidden="true"></span>
                 </div>
             </article>
+
+
             <!-- European Destination -->
-            <article class="sun-destination-2" aria-label="European Destination">
-                <div class="heading">
-                    <h3 class="heading-2">European Destination</h3>
+            <article class="european-destination" aria-label="European Destination">
+                <div>
+                    <h3 class="destination-heading">European Destination</h3>
                 </div>
                 <div class="element-cards">
                     <div class="frame-2">
-                        <img class="anguila" src="img/anguila-1-8.png" alt="Antigua destination" />
-                        <span class="text-wrapper-2">Antigua</span>
-                        <span class="text-wrapper-3">$2,309</span>
+                        <img class="anguila" src="img/anguila-1-7.png" alt="Belgium destination" />
+                        <span class="text-wrapper-2">Belgium</span>
+                        <span class="text-wrapper-3">$1,740</span>
                     </div>
                     <div class="card">
-                        <img class="anguila-2" src="img/anguila-1-7.png" alt="Belgium destination" />
-                        <span class="text-wrapper-4">Belguim</span>
-                        <span class="text-wrapper-5">1,749</span>
+                        <img class="anguila-2" src="img/anguila-1-8.png" alt="Vienna destination" />
+                        <span class="text-wrapper-4">Vienna, Austria</span>
+                        <span class="text-wrapper-5">$2,309</span>
                     </div>
                     <div class="frame-2">
-                        <img class="anguila" src="img/anguila-1-2.png" alt="Vienna destination" />
-                        <span class="text-wrapper-2">Vienna</span>
-                        <span class="text-wrapper-3">$1,599</span>
+                        <img class="anguila" src="img/anguila-1-2.png" alt="Portugal destination" />
+                        <span class="text-wrapper-2">Portugal</span>
+                        <span class="text-wrapper-3">$1,999</span>
+                    </div>
+                    <div class="frame-2">
+                        <img class="anguila" src="img/anguila-1-7.png" alt="Greece destination" />
+                        <span class="text-wrapper-2">Greece</span>
+                        <span class="text-wrapper-3">$3,600</span>
+                    </div>
+                    <div class="frame-2">
+                        <img class="anguila" src="img/anguila-1-8.png" alt="Spain destination" />
+                        <span class="text-wrapper-2">Spain</span>
+                        <span class="text-wrapper-3">$1,789</span>
                     </div>
                 </div>
+
+                <!-- little dots -->
                 <div class="contro-l" aria-label="Carousel navigation dots" role="group">
                     <span class="dot" aria-hidden="true"></span>
                     <span class="dot-2" aria-hidden="true"></span>
@@ -253,27 +278,42 @@
                     <span class="dot" aria-hidden="true"></span>
                 </div>
             </article>
+
+
             <!-- North American Destination -->
-            <article class="sun-destination-3" aria-label="North American Destination">
-                <div class="heading">
-                    <h3 class="heading-2">North American Destination</h3>
+            <article class="american-destination" aria-label="North American Destination">
+                <div>
+                    <h3 class="destination-heading">North American Destination</h3>
                 </div>
                 <div class="element-cards">
                     <div class="frame-2">
-                        <img class="anguila" src="img/image.png" alt="Antigua destination" />
-                        <span class="text-wrapper-2">Antigua</span>
-                        <span class="text-wrapper-3">$669</span>
+                        <img class="anguila" src="img/anguila-1-3.png" alt="Alberta destination" />
+                        <span class="text-wrapper-2">Alberta, Canada</span>
+                        <span class="text-wrapper-3">$660</span>
                     </div>
                     <div class="card">
-                        <img class="anguila-2" src="img/anguila-1-3.png" alt="Alberta destination" />
-                        <span class="text-wrapper-4">Alberta</span>
-                        <span class="text-wrapper-5">$660</span>
+                        <img class="anguila-2" src="img/image.png" alt="Nova Scotia destination" />
+                        <span class="text-wrapper-4">Nova Scotia, Canada</span>
+                        <span class="text-wrapper-5">$669</span>
                     </div>
                     <div class="frame-2">
-                        <img class="anguila" src="img/anguila-1-5.png" alt="Nova Scotia destination" />
-                        <span class="text-wrapper-6">Nova Scotia</span>
+                        <img class="anguila" src="img/anguila-1-5.png" alt="Banff destination" />
+                        <span class="text-wrapper-2">Banff, Canada</span>
+                        <span class="text-wrapper-3">$709</span>
+                    </div>
+                    <div class="frame-2">
+                        <img class="anguila" src="img/image.png" alt="Quebec City destination" />
+                        <span class="text-wrapper-2">Quebec City, Canada</span>
+                        <span class="text-wrapper-3">$889</span>
+                    </div>
+                    <div class="frame-2">
+                        <img class="anguila" src="img/anguila-1-3.png" alt="Vancouver destination" />
+                        <span class="text-wrapper-2">Vancouver, Canada</span>
+                        <span class="text-wrapper-3">$1,709</span>
                     </div>
                 </div>
+
+                <!-- little dots -->
                 <div class="contro-l" aria-label="Carousel navigation dots" role="group">
                     <span class="dot" aria-hidden="true"></span>
                     <span class="dot-2" aria-hidden="true"></span>
@@ -287,11 +327,8 @@
                 </div>
             </article>
         </section>
-        <!-- Blur glass corners -->
-        <div class="blur-glass-corner" aria-hidden="true">
-            <div class="rectangle-3"></div>
-            <div class="rectangle-3"></div>
-        </div>
+
+
         <!-- Footer -->
         <footer class="rectangle-4" role="contentinfo">
             <img class="logo-2" src="img/logo.png" alt="TripCentral logo" />
@@ -307,6 +344,9 @@
     <script>
         AOS.init();
     </script>
+
+    <!-- anime js -->
+    <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js"></script>
 
     <!-- jquery Library -->
     <script src="jquery.js"></script>
