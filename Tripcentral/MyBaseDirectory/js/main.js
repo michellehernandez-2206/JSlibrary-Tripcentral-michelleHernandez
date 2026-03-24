@@ -60,6 +60,16 @@ document.addEventListener("DOMContentLoaded", function () {
         const titleChars = animatedTitle.querySelectorAll(".char");
         let hasPlayedTitleAnimation = false;
 
+        const revealLowestPricesText = function () {
+            titleChars.forEach(function (char) {
+                char.style.opacity = "1";
+                char.style.transform = "translateY(0)";
+            });
+
+            animatedCopy.style.opacity = "1";
+            animatedCopy.style.transform = "translateY(0)";
+        };
+
         const playTitleAnimation = function () {
             if (hasPlayedTitleAnimation) {
                 return;
@@ -105,6 +115,13 @@ document.addEventListener("DOMContentLoaded", function () {
         window.addEventListener("scroll", checkTitleScrollTrigger, { passive: true });
         window.addEventListener("resize", checkTitleScrollTrigger);
         checkTitleScrollTrigger();
+
+        // Safety net: never leave the heading or paragraph hidden.
+        window.setTimeout(function () {
+            if (!hasPlayedTitleAnimation) {
+                revealLowestPricesText();
+            }
+        }, 1200);
     } else if (animatedCopy) {
         // Fallback: never leave the paragraph hidden if the animation setup cannot run.
         animatedCopy.style.opacity = "1";
@@ -123,24 +140,24 @@ document.addEventListener("DOMContentLoaded", function () {
                 perView: 3,
                 gap: 18,
                 peek: {
-                    before: 86,
-                    after: 86
+                    before: 28,
+                    after: 28
                 },
                 animationDuration: 520,
                 breakpoints: {
                     900: {
                         perView: 3,
                         peek: {
-                            before: 72,
-                            after: 72
+                            before: 16,
+                            after: 16
                         }
                     },
                     640: {
                         perView: 1,
                         startAt: 0,
                         peek: {
-                            before: 88,
-                            after: 88
+                            before: 18,
+                            after: 18
                         }
                     }
                 }

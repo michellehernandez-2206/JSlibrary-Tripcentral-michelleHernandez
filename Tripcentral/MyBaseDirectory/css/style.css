@@ -165,13 +165,17 @@ main {
     text-align: center;
 }
 
-/* Restored Glide.js destination carousel styles after accidental overwrite */
+/* Glide.js destination carousel styles */
 .sun-destination,
 .european-destination,
 .american-destination {
+
     margin: 0 auto 16px;
-    overflow: visible;
+    overflow: hidden;
 }
+
+
+.destination-card__image {}
 
 .destination-heading {
     text-align: center;
@@ -182,8 +186,7 @@ main {
 
 .destination-glide {
     width: 100%;
-    padding-bottom: 22px;
-    overflow: visible;
+    padding-bottom: 12px;
 }
 
 .destination-glide .glide__track {
@@ -201,14 +204,15 @@ main {
 }
 
 .destination-card {
-    width: min(100%, 192px);
-    padding: 10px;
+    width: min(100%, 176px);
+    padding: 12px;
     position: relative;
     margin: 0 auto;
     border: 1.5px solid rgba(216, 35, 50, 0.18);
-    border-radius: 16px;
+    border-radius: 18px;
     background: linear-gradient(180deg, rgba(255, 245, 245, 0.96) 0%, rgba(255, 238, 238, 0.92) 100%);
     box-shadow: var(--shadow-blur-lg);
+
 }
 
 /* Gradient border for the centered card based on the mockup colors */
@@ -217,7 +221,7 @@ main {
     position: absolute;
     inset: 0;
     padding: 1.5px;
-    border-radius: 16px;
+    border-radius: 18px;
     background: linear-gradient(135deg,
             #3E7379 15%,
             #D82332 57%,
@@ -235,29 +239,30 @@ main {
 
 .destination-card__image {
     width: 100%;
-    height: 106px;
+    height: 142px;
     display: block;
     object-fit: cover;
-    border-radius: 14px;
+    border-radius: 16px;
 }
 
 .destination-card__body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 10px;
-    margin-top: 8px;
+    gap: 16px;
+    margin-top: 12px;
 }
 
-.destination-card__name,
-.destination-card__price {
-    font-size: 12px;
+.destination-card__name {
+    font-size: 16px;
     line-height: 1.15;
     color: #231517;
 }
 
 .destination-card__price {
+    font-size: 16px;
     font-weight: 700;
+    color: #231517;
 }
 
 .destination-glide .glide__slide--active {
@@ -279,12 +284,12 @@ main {
     justify-content: center;
     align-items: center;
     gap: 10px;
-    margin-top: 14px;
+    margin-top: 4px;
 }
 
 .destination-dots__bullet {
-    width: 8px;
-    height: 8px;
+    width: 11px;
+    height: 11px;
     border: 0;
     padding: 0;
     border-radius: 999px;
@@ -295,4 +300,192 @@ main {
 .destination-dots__bullet.glide__bullet--active {
     background: #000000;
     transform: scale(1.18);
+}
+
+/* Official-style footer */
+.site-footer {
+    width: 100%;
+    margin-top: 32px;
+    color: #ffffff;
+}
+
+.site-footer__top {
+    background: #538b90;
+    padding: 48px 24px 40px;
+    text-align: center;
+}
+
+.site-footer__logo {
+    width: min(100%, 250px);
+    margin-bottom: 28px;
+}
+
+.site-footer__promo-links {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.site-footer__promo-links a,
+.site-footer__menu a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.site-footer__promo-links a {
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.site-footer__reviews {
+    margin: 26px 0 0;
+    font-size: 16px;
+}
+
+.site-footer__reviews span {
+    color: #9fbb4d;
+    font-weight: 700;
+}
+
+.site-footer__badges {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    margin: 28px 0;
+    flex-wrap: wrap;
+}
+
+.site-footer__badges span {
+    min-width: 86px;
+    padding: 10px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+.site-footer__socials {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+.site-footer__socials a {
+    width: 54px;
+    height: 54px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.site-footer__socials a:nth-child(1) {
+    background: #3b5998;
+}
+
+.site-footer__socials a:nth-child(2) {
+    background: #60a5fa;
+}
+
+.site-footer__socials a:nth-child(3) {
+    background: #cf3024;
+}
+
+.site-footer__socials a:nth-child(4) {
+    background: linear-gradient(135deg, #833ab4 0%, #fd1d1d 55%, #fcb045 100%);
+}
+
+.site-footer__bottom {
+    background: #315f62;
+    padding: 40px 24px 52px;
+}
+
+.site-footer__legal {
+    margin: 0 0 30px;
+    color: #80b8bd;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.site-footer__menu {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.site-footer__menu a {
+    font-size: 17px;
+    font-weight: 500;
+}
+
+@media (max-width: 767px) {
+    .lowest-prices-section {
+        padding-bottom: 8px;
+    }
+
+    .big-text {
+        margin-top: 80px;
+        margin-bottom: 16px;
+        font-size: var(--heading);
+    }
+
+    .small-regular-text p {
+        font-size: 11px;
+        line-height: normal;
+        margin: 8px 40px 24px 40px;
+    }
+
+    .sun-destination,
+    .european-destination,
+    .american-destination {
+        margin-bottom: 16px;
+    }
+
+    .destination-heading {
+        margin-bottom: 24px;
+        font-size: 26px;
+    }
+
+    .destination-card {
+        width: min(100%, 192px);
+        padding: 10px;
+    }
+
+    .destination-card__image {
+        height: 106px;
+        border-radius: 14px;
+    }
+
+    .destination-card__body {
+        gap: 10px;
+        margin-top: 8px;
+    }
+
+    .destination-card__name,
+    .destination-card__price {
+        font-size: 12px;
+    }
+
+    .destination-glide {
+        padding-bottom: 6px;
+    }
+
+    .destination-slide {
+        padding: 6px 0;
+    }
+
+    .destination-dots {
+        gap: 8px;
+        margin-top: 0;
+    }
+
+    .destination-dots__bullet {
+        width: 9px;
+        height: 9px;
+    }
 }
