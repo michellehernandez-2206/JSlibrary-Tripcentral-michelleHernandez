@@ -174,9 +174,6 @@ main {
     overflow: hidden;
 }
 
-
-.destination-card__image {}
-
 .destination-heading {
     text-align: center;
     font-size: var(--cardtitle);
