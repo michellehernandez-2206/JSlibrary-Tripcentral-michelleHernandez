@@ -32,7 +32,8 @@ document.addEventListener("DOMContentLoaded", function () {
     // Anime.js scroll trigger for Lowest Prices title and paragraph.
     const animatedTitle = document.querySelector("[data-animate-chars]");
     const animatedCopy = document.querySelector("[data-animate-copy]");
-    const firstDestinationCards = document.querySelector(".sun-destination .element-cards");
+    // Keep this selector aligned with the current carousel markup.
+    const firstDestinationCards = document.querySelector(".sun-destination .destination-glide");
     // Tweak these values to control when the animation starts and how fast it feels.
     const lowestPricesScrollOffset = 60;
     const lowestPricesCharDuration = 900;
@@ -104,6 +105,49 @@ document.addEventListener("DOMContentLoaded", function () {
         window.addEventListener("scroll", checkTitleScrollTrigger, { passive: true });
         window.addEventListener("resize", checkTitleScrollTrigger);
         checkTitleScrollTrigger();
+    } else if (animatedCopy) {
+        // Fallback: never leave the paragraph hidden if the animation setup cannot run.
+        animatedCopy.style.opacity = "1";
+        animatedCopy.style.transform = "translateY(0)";
+    }
+
+    // Glide.js setup for the destination carousels.
+    if (typeof Glide === "function") {
+        const destinationCarousels = document.querySelectorAll("[data-destination-carousel]");
+
+        destinationCarousels.forEach(function (carousel) {
+            const glide = new Glide(carousel, {
+                type: "carousel",
+                focusAt: "center",
+                startAt: 1,
+                perView: 3,
+                gap: 18,
+                peek: {
+                    before: 86,
+                    after: 86
+                },
+                animationDuration: 520,
+                breakpoints: {
+                    900: {
+                        perView: 3,
+                        peek: {
+                            before: 72,
+                            after: 72
+                        }
+                    },
+                    640: {
+                        perView: 1,
+                        startAt: 0,
+                        peek: {
+                            before: 88,
+                            after: 88
+                        }
+                    }
+                }
+            });
+
+            glide.mount();
+        });
     }
 
     // occupancy picker
