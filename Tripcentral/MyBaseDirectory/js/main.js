@@ -135,30 +135,27 @@ document.addEventListener("DOMContentLoaded", function () {
         destinationCarousels.forEach(function (carousel) {
             const glide = new Glide(carousel, {
                 type: "carousel",
-                focusAt: "center",
-                startAt: 1,
-                perView: 3,
-                gap: 18,
-                peek: {
-                    before: 28,
-                    after: 28
-                },
+                focusAt: 0,
+                startAt: 0,
+                perView: 5,
+                gap: 16,
+                peek: 0,
                 animationDuration: 520,
                 breakpoints: {
+                    1200: {
+                        perView: 4,
+                        peek: 0,
+                        gap: 14
+                    },
                     900: {
                         perView: 3,
-                        peek: {
-                            before: 16,
-                            after: 16
-                        }
+                        peek: 0,
+                        gap: 12
                     },
                     640: {
                         perView: 1,
-                        startAt: 0,
-                        peek: {
-                            before: 18,
-                            after: 18
-                        }
+                        peek: 28,
+                        gap: 12
                     }
                 }
             });
