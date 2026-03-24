@@ -1,0 +1,244 @@
+.container {
+    padding: 0px 16px;
+}
+
+.field-row {
+    height: 48px;
+    width: 96%;
+    display: flex;
+    margin: auto;
+    align-items: center;
+    border-radius: 8px;
+
+    padding-right: 16px;
+    margin-top: 16px;
+
+    box-shadow: var(--shadow-blur-sm);
+    backdrop-filter: blur(10px) brightness(100%);
+    -webkit-backdrop-filter: blur(10px) brightness(100%);
+    background: linear-gradient(180deg,
+            rgba(255, 255, 255, 0.6) 0%,
+            rgba(255, 255, 255, 0.5) 100%);
+    border-color: var(--light-modecontainer-border);
+}
+
+.field-label {
+    display: flex;
+    min-width: 50px;
+    height: 48px;
+    font-size: var(--subhead);
+    font-weight: 600;
+    padding: 0px 12px;
+    color: #1e1e1e;
+    align-items: center;
+    position: relative;
+    background-color: #ffffff99;
+    border-radius: 8px 0px 0px 8px;
+    box-shadow: var(--shadow-blur-sm);
+}
+
+.field-input {
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: var(--subhead);
+    color: #000000;
+    padding-left: 16px;
+    width: 100%;
+}
+
+.field-input::placeholder {
+    color: #6f6f6f;
+}
+
+.field-icon {
+    font-size: 20px;
+    color: #7a7a7a;
+}
+
+.field-row img {
+    margin-left: 22px;
+}
+
+.field-grid {
+    margin-top: 16px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    justify-content: space-between;
+
+}
+
+.field-grid .field-row {
+
+    margin: 0px;
+}
+
+.field-grid .field-input {
+    width: inherit;
+
+}
+
+/* ocuppancy  */
+.occupancy-wrap {
+    width: 100%;
+    margin: 16px auto;
+    position: relative;
+}
+
+.occupancy-trigger {
+    width: 96%;
+    margin: 0;
+    padding-right: 16px;
+    cursor: pointer;
+}
+
+.occupancy-trigger img {
+    margin-left: 14px;
+}
+
+.occupancy-panel {
+    position: absolute;
+    top: 110%;
+    left: 1px;
+    width: inherit;
+    padding: 8px 16px;
+    box-sizing: border-box;
+    border-radius: 0px 0px 12px 12px;
+    background: rgba(255, 255, 255, 0.963);
+    border: 1px solid #ffffff80;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+    z-index: 20;
+}
+
+.occupancy-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--secondary-color);
+}
+
+#occupancy-input {
+    max-width: 180px;
+}
+
+.occupancy-row:last-child {
+    border-bottom: none;
+}
+
+.occupancy-name {
+    font-size: var(--subhead);
+    font-weight: 600;
+    color: #1e1e1e;
+}
+
+.occupancy-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.occupancy-btn {
+    width: 32px;
+    height: 32px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 50%;
+    background: white;
+    color: #1e1e1e;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.occupancy-count {
+    min-width: 24px;
+    text-align: center;
+    font-size: var(--subhead);
+    color: #1e1e1e;
+}
+
+/* checkboxes */
+.travel-filters {
+    justify-content: space-between;
+    width: 100%;
+    display: flex;
+
+}
+
+.travel-filter {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 16px 6px;
+    border-radius: 8px;
+    border: 1px solid var(--secondary-color);
+    background: rgba(255, 255, 255, 0.35);
+    cursor: pointer;
+    user-select: none;
+}
+
+.travel-filter-input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.travel-filter-box {
+    width: 18px;
+    height: 18px;
+    box-sizing: border-box;
+    border: 2px solid #d85a63;
+    border-radius: 5px;
+    background: transparent;
+    position: relative;
+}
+
+.travel-filter-box::after {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 1px;
+    width: 5px;
+    height: 9px;
+    border-right: 2px solid white;
+    border-bottom: 2px solid white;
+    transform: rotate(45deg);
+    opacity: 0;
+}
+
+.travel-filter-input:checked+.travel-filter-box {
+    background: #d85a63;
+}
+
+.travel-filter-input:checked+.travel-filter-box::after {
+    opacity: 1;
+}
+
+.travel-filter-text {
+    font-size: 11px;
+    font-weight: 00;
+    color: #1e1e1e;
+}
+
+/* big red button */
+.search-button {
+    width: 100%;
+    height: 50px;
+    margin: 16px 12px 24px 0px;
+    display: block;
+    border: none;
+    border-radius: 8px;
+    background: #c82f32;
+    color: white;
+    font-size: var(--subhead);
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: var(--shadow-blur-sm);
+
+}
+
+.search-button:hover {
+    background: #b4292c;
+}

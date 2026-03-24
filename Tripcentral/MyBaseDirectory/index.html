@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <title>TripCentral - The smarter way to book a travel</title>
+
+    <!-- css stile -->
+    <link rel="stylesheet" href="/css/overall.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fieldCard.css" />
+
+
+    <!-- Cambio agregado: CSS de flatpickr para el date picker personalizado -->
+    <!-- js libraries -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            <img src="/images/logo.svg" alt="TripCentral logo">
+        </div>
+
+        <div class="nav-sections" aria-label="Primary navigation">
+            <ul>
+                <li><a class="1" href="#">Home</a></li>
+                <li><a class="1" href="#">Cruises</a></li>
+                <li><a class="1" href="#">Tours</a></li>
+                <li><a class="1" href="#">Hotels</a></li>
+                <li><a class="1" href="#">Cars</a></li>
+                <li><a class="1" href="#">Insurance</a></li>
+            </ul>
+        </div>
+
+        <div id="canada">
+            <img src="/images/CANADIAN 1.svg" alt="">
+            <img src="/images/fi-rr-menu-burger.svg" alt="">
+        </div>
+
+    </nav>
+
+    <main>
+        <canvas id="canvas-basic"></canvas>
+        <section class="hero" aria-label="Hero section">
+            <!-- Hero text block -->
+            <p class="tone-of-voice">The smarter way to book a travel</p>
+            <p class="subhed">Helping Canadians Book Great Vacations For Over 30 Years!</p>
+            <button class="button-primary" type="button">
+                <span class="text-wrapper">Download app</span>
+            </button>
+
+            <!-- Search / Filter panel -->
+            <section class="clear-search">
+                <!-- Tab navigation -->
+                <section class="options" aria-label="Search options">
+                    <div class="op-vacations">Packages</div>
+                    <div class="op-vacations">Flights</div>
+                    <div class="op-vacations">Cruises</div>
+                </section>
+
+                <!-- form -->
+                <div class="container"></div>
+                <!-- From field -->
+                <div class="field-row">
+                    <label for="from-input" class="field-label">From</label>
+                    <input id="from-input" type="search" class="field-input" placeholder="Toronto" />
+                    <img class="field-icon" src="/images/fi-rs-angle-small-down.svg"
+                        alt="select arrow down icon"></span>
+                </div>
+
+                <!-- To field -->
+                <div class="field-row">
+                    <label for="to-input" class="field-label">To</label>
+                    <input id="to-input" type="text" class="field-input" placeholder="Select a Destination" />
+                </div>
+
+                <!-- date and lenght -->
+                <div class="field-grid">
+                    <div class="field-row">
+                        <label for="length-input" class="field-label">Length</label>
+                        <input id="length-input" type="text" class="field-input" placeholder="Duration" />
+                    </div>
+
+                    <div class="field-row">
+                        <label for="date-input" class="field-label">Date</label>
+                        <input id="date-input" type="text" class="field-input date-picker"
+                            placeholder="Month, Day, Year" />
+                    </div>
+                </div>
+
+                <!-- Budget field -->
+                <div class="field-row">
+                    <label for="budget-input" class="field-label">Budget</label>
+                    <input id="budget-input" type="number" class="field-input" placeholder="Select a Price" />
+                </div>
+
+
+                <!-- Occupancy picker with dropdown -->
+                <div class="occupancy-wrap">
+                    <div class="field-row occupancy-trigger" id="occupancy-trigger" role="button" tabindex="0"
+                        aria-expanded="false" aria-controls="occupancy-panel">
+                        <label class="field-label" for="occupancy-input">Guests</label>
+                        <input id="occupancy-input" type="text" class="field-input" value="0 Adults, 0 Children, 1 Room"
+                            readonly />
+                        <img class="field-icon" src="/images/fi-rs-angle-small-down.svg" alt="open occupancy picker">
+                    </div>
+
+                    <div class="occupancy-panel" id="occupancy-panel" hidden>
+                        <div class="occupancy-row">
+                            <span class="occupancy-name">Adults</span>
+                            <div class="occupancy-controls">
+                                <button type="button" class="occupancy-btn" data-target="adults"
+                                    data-action="decrease">-</button>
+                                <span class="occupancy-count" id="adults-count">0</span>
+                                <button type="button" class="occupancy-btn" data-target="adults"
+                                    data-action="increase">+</button>
+                            </div>
+                        </div>
+
+                        <div class="occupancy-row">
+                            <span class="occupancy-name">Children</span>
+                            <div class="occupancy-controls">
+                                <button type="button" class="occupancy-btn" data-target="children"
+                                    data-action="decrease">-</button>
+                                <span class="occupancy-count" id="children-count">0</span>
+                                <button type="button" class="occupancy-btn" data-target="children"
+                                    data-action="increase">+</button>
+                            </div>
+                        </div>
+
+                        <div class="occupancy-row">
+                            <span class="occupancy-name">Rooms</span>
+                            <div class="occupancy-controls">
+                                <button type="button" class="occupancy-btn" data-target="rooms"
+                                    data-action="decrease">-</button>
+                                <span class="occupancy-count" id="rooms-count">1</span>
+                                <button type="button" class="occupancy-btn" data-target="rooms"
+                                    data-action="increase">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- checkboxes -->
+                <div class="travel-filters" role="group" aria-label="Travel filters">
+                    <label class="travel-filter">
+                        <input type="checkbox" class="travel-filter-input" name="adult-resort" checked>
+                        <span class="travel-filter-box"></span>
+                        <span class="travel-filter-text">Adult Resort</span>
+                    </label>
+
+                    <label class="travel-filter">
+                        <input type="checkbox" class="travel-filter-input" name="all-inclusive" checked>
+                        <span class="travel-filter-box"></span>
+                        <span class="travel-filter-text">All Inclusive</span>
+                    </label>
+
+                    <label class="travel-filter">
+                        <input type="checkbox" class="travel-filter-input" name="direct-flight">
+                        <span class="travel-filter-box"></span>
+                        <span class="travel-filter-text">Direct Flight</span>
+                    </label>
+                </div>
+
+                <button class="search-button" type="button">View Matches</button>
+            </section>
+        </section>
+
+
+
+
+        </div>
+        <!-- Lowest Prices section -->
+        <div class="rectangle-2" aria-hidden="true"></div>
+        <section aria-label="Lowest Prices">
+            <div class="headline-medium">
+                <h2 class="headline-medium-2">Lowest Prices</h2>
+            </div>
+            <div class="small-regular-10">
+                <p class="p">
+                    These are the lowest prices from Toronto, updated <br />twice daily and include applicable taxes and
+                    surcharges
+                </p>
+            </div>
+            <!-- Sun Destination -->
+            <article class="sun-destination" aria-label="Sun Destination">
+                <div class="heading">
+                    <h3 class="heading-2">Sun Destination</h3>
+                </div>
+                <div class="element-cards">
+                    <div class="frame-2">
+                        <img class="anguila" src="img/anguila-1-6.png" alt="Antigua destination" />
+                        <span class="text-wrapper-2">Antigua</span>
+                        <span class="text-wrapper-3">$1,359</span>
+                    </div>
+                    <div class="card">
+                        <img class="anguila-2" src="img/anguila-1.png" alt="Anguilla destination" />
+                        <span class="text-wrapper-4">Anguilla</span>
+                        <span class="text-wrapper-5">$2,429</span>
+                    </div>
+                    <div class="frame-2">
+                        <img class="anguila" src="img/anguila-1-4.png" alt="Antigua destination" />
+                        <span class="text-wrapper-2">Antigua</span>
+                        <span class="text-wrapper-3">$1,599</span>
+                    </div>
+                </div>
+                <div class="contro-l" aria-label="Carousel navigation dots" role="group">
+                    <span class="dot" aria-hidden="true"></span>
+                    <span class="dot-2" aria-hidden="true"></span>
+                    <span class="dot-3" aria-hidden="true"></span>
+                    <span class="dot-3" aria-hidden="true"></span>
+                    <span class="dot-4" aria-hidden="true"></span>
+                    <span class="dot-3" aria-hidden="true"></span>
+                    <span class="dot-3" aria-hidden="true"></span>
+                    <span class="dot-2" aria-hidden="true"></span>
+                    <span class="dot" aria-hidden="true"></span>
+                </div>
+            </article>
+            <!-- European Destination -->
+            <article class="sun-destination-2" aria-label="European Destination">
+                <div class="heading">
+                    <h3 class="heading-2">European Destination</h3>
+                </div>
+                <div class="element-cards">
+                    <div class="frame-2">
+                        <img class="anguila" src="img/anguila-1-8.png" alt="Antigua destination" />
+                        <span class="text-wrapper-2">Antigua</span>
+                        <span class="text-wrapper-3">$2,309</span>
+                    </div>
+                    <div class="card">
+                        <img class="anguila-2" src="img/anguila-1-7.png" alt="Belgium destination" />
+                        <span class="text-wrapper-4">Belguim</span>
+                        <span class="text-wrapper-5">1,749</span>
+                    </div>
+                    <div class="frame-2">
+                        <img class="anguila" src="img/anguila-1-2.png" alt="Vienna destination" />
+                        <span class="text-wrapper-2">Vienna</span>
+                        <span class="text-wrapper-3">$1,599</span>
+                    </div>
+                </div>
+                <div class="contro-l" aria-label="Carousel navigation dots" role="group">
+                    <span class="dot" aria-hidden="true"></span>
+                    <span class="dot-2" aria-hidden="true"></span>
+                    <span class="dot-3" aria-hidden="true"></span>
+                    <span class="dot-3" aria-hidden="true"></span>
+                    <span class="dot-4" aria-hidden="true"></span>
+                    <span class="dot-3" aria-hidden="true"></span>
+                    <span class="dot-3" aria-hidden="true"></span>
+                    <span class="dot-2" aria-hidden="true"></span>
+                    <span class="dot" aria-hidden="true"></span>
+                </div>
+            </article>
+            <!-- North American Destination -->
+            <article class="sun-destination-3" aria-label="North American Destination">
+                <div class="heading">
+                    <h3 class="heading-2">North American Destination</h3>
+                </div>
+                <div class="element-cards">
+                    <div class="frame-2">
+                        <img class="anguila" src="img/image.png" alt="Antigua destination" />
+                        <span class="text-wrapper-2">Antigua</span>
+                        <span class="text-wrapper-3">$669</span>
+                    </div>
+                    <div class="card">
+                        <img class="anguila-2" src="img/anguila-1-3.png" alt="Alberta destination" />
+                        <span class="text-wrapper-4">Alberta</span>
+                        <span class="text-wrapper-5">$660</span>
+                    </div>
+                    <div class="frame-2">
+                        <img class="anguila" src="img/anguila-1-5.png" alt="Nova Scotia destination" />
+                        <span class="text-wrapper-6">Nova Scotia</span>
+                    </div>
+                </div>
+                <div class="contro-l" aria-label="Carousel navigation dots" role="group">
+                    <span class="dot" aria-hidden="true"></span>
+                    <span class="dot-2" aria-hidden="true"></span>
+                    <span class="dot-3" aria-hidden="true"></span>
+                    <span class="dot-3" aria-hidden="true"></span>
+                    <span class="dot-4" aria-hidden="true"></span>
+                    <span class="dot-3" aria-hidden="true"></span>
+                    <span class="dot-3" aria-hidden="true"></span>
+                    <span class="dot-2" aria-hidden="true"></span>
+                    <span class="dot" aria-hidden="true"></span>
+                </div>
+            </article>
+        </section>
+        <!-- Blur glass corners -->
+        <div class="blur-glass-corner" aria-hidden="true">
+            <div class="rectangle-3"></div>
+            <div class="rectangle-3"></div>
+        </div>
+        <!-- Footer -->
+        <footer class="rectangle-4" role="contentinfo">
+            <img class="logo-2" src="img/logo.png" alt="TripCentral logo" />
+        </footer>
+    </main>
+
+
+    <!-- AOS (Animate On Scroll) Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- flatpickr -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script>
+        AOS.init();
+    </script>
+
+    <!-- jquery Library -->
+    <script src="jquery.js"></script>
+
+    <!-- Parsley Validation Library -->
+    <script src="parsley.min.js"></script>
+
+    <!-- granim -->
+    <script src="https://cdn.jsdelivr.net/npm/granim@2.0.0/dist/granim.min.js"></script>
+
+
+    <!-- MY JS -->
+    <script src="/js/main.js"></script>
+
+</body>
+
+</html>
